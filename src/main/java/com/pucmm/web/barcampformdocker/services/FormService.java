@@ -10,8 +10,10 @@ import java.util.Optional;
 
 @Service
 public class FormService {
-    @Autowired
-    private FormRepository formRepository;
+    private final FormRepository formRepository;
+    public FormService(FormRepository formRepository){
+        this.formRepository = formRepository;
+    }
     public Form getByCodigo(Long codigo) {
         return formRepository.findById(codigo).get();
     }
