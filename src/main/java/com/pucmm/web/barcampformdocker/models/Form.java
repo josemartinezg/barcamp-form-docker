@@ -18,11 +18,11 @@ public class Form implements Serializable {
     @GeneratedValue(strategy= GenerationType.AUTO)
     Long id;
     String pregunta1;
-    int respuesta1;
+    Integer respuesta1;
     String pregunta2;
-    int respuesta2;
+    Integer respuesta2;
     String pregunta3;
-    int respuesta3;
+    Integer respuesta3;
     String pregunta4;
     String respuesta4;
 
