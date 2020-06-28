@@ -11,7 +11,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -44,17 +47,17 @@ public class LoginController {
         mav.setViewName("login");
         return mav;
     }
-    @PostMapping("/logon")
-    public String login(@RequestParam String user, @RequestParam String password) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user, password));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+    @RequestMapping(value = "/logon", method = RequestMethod.GET)
+    public String login(@RequestParam("user") String user, @RequestParam("password") String password) {
+//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken("admin@gmail.com", "admin"));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
         System.out.println(user + " " + password);
         Usuario userExists = usuarioService.getUsuario(user);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user", userExists);
-        modelAndView.setViewName("formulario");
-        return "redirect:/formulario";
+        modelAndView.setViewName("charts");
+
+        return "redirect:/charts";
     }
 
 }

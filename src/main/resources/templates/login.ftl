@@ -25,7 +25,7 @@
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="card-body">
-            <form action="/logon" method="post" class="form-group">
+            <form action="/logon" method="get" class="form-group">
                 <div class="form-group">
                     <div class="form-label-group">
                         <input type="email" id="user" name="user" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
@@ -46,7 +46,7 @@
                         </label>
                     </div>
                 </div>
-                <a class="btn btn-primary btn-block" href="/logon">Login</a>
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
             </form>
             <div class="text-center">
                 <a class="d-block small mt-3" href="register.html">Register an Account</a>

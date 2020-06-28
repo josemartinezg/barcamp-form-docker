@@ -26,17 +26,15 @@ public class FormService {
         return formRepository.save(formulario);
     }
 
-    public Integer contarResultado1() {
+    public Integer contarRespuesta1() {
         return formRepository.countByResuesta1();
     }
 
-    public Integer contarResultado2() {
+    public Integer contarRespuesta2() {
         return formRepository.countByRespuesta2();
     }
-    public Integer contarResultado3() {
+    public Integer contarRespuesta3() {
         return formRepository.countByRespuesta3();
     }
-    public Integer contarResultado4() {
-        return formRepository.countByRespuesta4();
-    }
+
 }

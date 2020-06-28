@@ -24,7 +24,6 @@ public class Form implements Serializable {
     String pregunta3;
     int respuesta3;
     String pregunta4;
-    int respuesta4;
-    String pregunta5;
-    int respuesta5;
+    String respuesta4;
+
 }
