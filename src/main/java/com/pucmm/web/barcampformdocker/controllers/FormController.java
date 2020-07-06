@@ -2,6 +2,7 @@ package com.pucmm.web.barcampformdocker.controllers;
 
 import com.pucmm.web.barcampformdocker.PublicForm;
 import com.pucmm.web.barcampformdocker.models.Form;
+import com.pucmm.web.barcampformdocker.models.Usuario;
 import com.pucmm.web.barcampformdocker.security.MainUser;
 import com.pucmm.web.barcampformdocker.services.FormService;
 import com.pucmm.web.barcampformdocker.services.UsuarioService;
@@ -36,10 +37,10 @@ public class FormController {
                              @RequestParam("respuesta2") String r2,
                              @RequestParam("respuesta3") String r3,
                              @RequestParam("respuesta4") String r4){
-        System.out.println(r1);
-        System.out.println(r2);
-        System.out.println(r3);
-        System.out.println(r4);
+        Usuario usuario = usuarioService.getUsuario(currentUser.getUsername()).orElse(null);
+        if (usuario == null){
+            return "redirect:/login";
+        }
 
         System.out.println("Conteo pregunta1: " + this.formService.contarRespuesta1());
         Form form = new Form();
@@ -51,8 +52,9 @@ public class FormController {
         form.setPregunta2("2");
         form.setPregunta3("3");
         form.setPregunta4("4");
+        form.setUsuario(usuario);
         formService.guardar(form);
-        return "redirect:/formulario";
+        return "redirect:/form";
     }
 
 }

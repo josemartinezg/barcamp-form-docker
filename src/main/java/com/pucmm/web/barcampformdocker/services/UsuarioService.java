@@ -16,8 +16,8 @@ public class UsuarioService {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public Usuario getUsuario(String usuario) {
-        return usuarioRepository.findByUsername(usuario);
+    public Optional<Usuario> getUsuario(String usuario) {
+        return usuarioRepository.findById(usuario);
     }
 
     public Usuario guardar(Usuario usuario) {

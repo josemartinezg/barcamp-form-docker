@@ -16,14 +16,17 @@ import java.io.Serializable;
 public class Form implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    Long id;
-    String pregunta1;
-    Integer respuesta1;
-    String pregunta2;
-    Integer respuesta2;
-    String pregunta3;
-    Integer respuesta3;
-    String pregunta4;
-    String respuesta4;
+    private Long id;
+    private String pregunta1;
+    private Integer respuesta1;
+    private String pregunta2;
+    private Integer respuesta2;
+    private String pregunta3;
+    private Integer respuesta3;
+    private String pregunta4;
+    private String respuesta4;
+
+    @ManyToOne
+    private Usuario usuario;
 
 }

@@ -11,12 +11,18 @@
                         <div class="sb-sidenav-collapse-arrow"></div>
                     </a>
 
-                    <div class="sb-sidenav-menu-heading">Graficos</div>
+                    <div class="sb-sidenav-menu-heading">Resultados</div>
                     <a class="nav-link" href="/charts">
                         <div class="sb-nav-link-icon"><i class="fa fa-bar-chart"></i>
                         </div>Graficos
                         <div class="sb-sidenav-collapse-arrow"></div>
                     </a>
+                    <a class="nav-link" href="/respuestas">
+                        <div class="sb-nav-link-icon"><i class="fa fa-bar-chart"></i>
+                        </div>Respuestas
+                        <div class="sb-sidenav-collapse-arrow"></div>
+                    </a>
+
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth"

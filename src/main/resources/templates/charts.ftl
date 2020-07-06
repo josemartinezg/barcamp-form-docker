@@ -7,20 +7,14 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-header"><i class="fas fa-table mr-1"></i>Gráficos</div>
-                <div class="card-body">
-                    <div class="col-lg-8">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fas fa-chart-bar"></i>
-                                Bar Chart Example</div>
-                            <div class="card-body">
-                                <div id="chart_div"></div>
-                                <canvas id="myBarChart" width="100%" height="50"></canvas>
-                            </div>
-                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    <div class="card-body">
+
+                        <div class="card-body">
+                            <div id="chart_div"></div>
+                            <canvas id="myBarChart" width="100%" height="50"></canvas>
                         </div>
                     </div>
-                </div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
         </div>
     </main>
@@ -65,7 +59,7 @@
 
         // Set chart options
         var options = {'title':'Grafico de Preguntas',
-            'width':1600,
+            'width':1200,
             'height':800};
 
         // Instantiate and draw our chart, passing in some options.

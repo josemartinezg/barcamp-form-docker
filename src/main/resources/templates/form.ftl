@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
                                 <div class="col-xl-12 col-md-6">
-                                    <label for="respuesta2">¿Los expositores mostraron tener dominio del tema??</label>
+                                    <label for="respuesta2">¿Los expositores mostraron tener dominio del tema?</label>
                                     <select class="form-control" id="respuesta2" name="respuesta2">
                                         <option>1</option>
                                         <option>2</option>

@@ -1,6 +1,7 @@
 package com.pucmm.web.barcampformdocker.services;
 
 import com.pucmm.web.barcampformdocker.models.Form;
+import com.pucmm.web.barcampformdocker.models.Usuario;
 import com.pucmm.web.barcampformdocker.repositories.FormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class FormService {
         return formRepository.findById(codigo).get();
     }
 
-    public List<Form> getAll() {
+    public List<Form> getAnswers() {
         return formRepository.findAll();
     }
 

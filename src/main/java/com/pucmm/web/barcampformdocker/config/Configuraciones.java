@@ -58,6 +58,8 @@ public class Configuraciones extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/charts/**")
                 .permitAll()
+                .antMatchers("/respuestas/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -41,23 +41,23 @@ public class LoginController {
     }
     @GetMapping("/login")
     public ModelAndView login() {
-        ModelAndView mav = new ModelAndView();
+        ModelAndView model = new ModelAndView();
         Usuario user = new Usuario();
-        mav.addObject("usuario", user);
-        mav.setViewName("login");
-        return mav;
+        model.addObject("usuario", user);
+        model.setViewName("login");
+        return model;
     }
     @RequestMapping(value = "/logon", method = RequestMethod.GET)
     public String login(@RequestParam("user") String user, @RequestParam("password") String password) {
-//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken("admin@gmail.com", "admin"));
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user, password));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         System.out.println(user + " " + password);
-        Usuario userExists = usuarioService.getUsuario(user);
+        Usuario userExists = usuarioService.getUsuario(user).get();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user", userExists);
-        modelAndView.setViewName("charts");
+        modelAndView.setViewName("form");
 
-        return "redirect:/charts";
+        return "redirect:/form";
     }
 
 }
