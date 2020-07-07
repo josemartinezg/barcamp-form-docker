@@ -7,12 +7,13 @@ import com.pucmm.web.barcampformdocker.security.MainUser;
 import com.pucmm.web.barcampformdocker.services.FormService;
 import com.pucmm.web.barcampformdocker.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.pucmm.web.barcampformdocker.security.CurrentUser;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import javax.servlet.http.HttpSession;
 @Controller
 public class FormController {
     @Autowired
@@ -20,10 +21,16 @@ public class FormController {
     @Autowired
     UsuarioService usuarioService;
 
+    @Value("${server.port}")
+    private int puerto;
+
     @RequestMapping("form")
-    public ModelAndView indice(@CurrentUser MainUser usuarioPrincipal, ModelAndView model) {
+    public ModelAndView indice(@CurrentUser MainUser usuarioPrincipal, ModelAndView model,  HttpSession session) {
         PublicForm form = new PublicForm();
         String plantilla = "form.ftl";
+        String idSession = session.getId();
+        String sessionInfo = "Puerto: " + puerto + " Sesion: " + idSession;
+        model.addObject("sessionInfo", sessionInfo);
         model.addObject("form", form);
         model.addObject("plantilla", plantilla);
         model.addObject("usuario", usuarioPrincipal);

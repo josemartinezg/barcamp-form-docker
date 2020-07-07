@@ -6,10 +6,12 @@ import com.pucmm.web.barcampformdocker.security.MainUser;
 import com.pucmm.web.barcampformdocker.services.FormService;
 import com.pucmm.web.barcampformdocker.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -18,9 +20,10 @@ public class ChartsController {
     FormService formService;
     @Autowired
     UsuarioService usuarioService;
-
+    @Value("${server.port}")
+    private int puerto;
     @RequestMapping("charts")
-    public ModelAndView surveyDashboard(@CurrentUser MainUser mainUser, ModelAndView model){
+    public ModelAndView surveyDashboard(@CurrentUser MainUser mainUser, ModelAndView model,  HttpSession session){
         if (mainUser == null){
             model.setViewName("login");
             return model;
@@ -28,6 +31,9 @@ public class ChartsController {
             model.setViewName("form");
             return model;
         }else {
+            String idSession = session.getId();
+            String sessionInfo = "Puerto: " + puerto + " Sesion: " + idSession;
+            model.addObject("sessionInfo", sessionInfo);
             String plantilla = "charts.ftl";
             Integer p1 = formService.contarRespuesta1();
             Integer p2 = formService.contarRespuesta2();
@@ -42,9 +48,12 @@ public class ChartsController {
 
     }
     @RequestMapping("respuestas")
-    public ModelAndView surveySummary(@CurrentUser MainUser mainUser, ModelAndView model){
+    public ModelAndView surveySummary(@CurrentUser MainUser mainUser, ModelAndView model, HttpSession session){
         String plantilla = "resumen.ftl";
         List<Form> respuestas = formService.getAnswers();
+        String idSession = session.getId();
+        String sessionInfo = "Puerto: " + puerto + " Sesion: " + idSession;
+        model.addObject("sessionInfo", sessionInfo);
         model.addObject("plantilla", plantilla);
         model.addObject("preguntas", respuestas);
         model.setViewName("base");
