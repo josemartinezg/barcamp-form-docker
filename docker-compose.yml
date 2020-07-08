@@ -38,11 +38,11 @@ services:
       - app-web
       - app-web2
       - app-web3
-    image: haproxy:1.8.8
+    image: haproxy
     volumes:
-    - ./etc:/usr/local/etc/haproxy
+    - "./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
     ports:
-      - 81:20
+      - 9000:9000
 
 
   base-datos-app-web:

@@ -46,7 +46,7 @@ listen aplicacion_web
         balance roundrobin
         #permite mantener la sesion enviada por el servidor.
         cookie JSESSIONID prefix nocache
-        server app-01 localhost:8080 check
-        server app-02 localhost:8081 check
-        server app-03 localhost:8082 check
+        server app-1 localhost:8080 check
+        server app-2 localhost:8081 check
+        server app-3 localhost:8082 check
 
