@@ -38,9 +38,9 @@ services:
       - app-web
       - app-web2
       - app-web3
-    image: haproxy:2.0.2
+    image: haproxy:1.8.8
     volumes:
-    - /opt/ci-with-haproxy/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    - ./etc:/usr/local/etc/haproxy
     ports:
       - 81:20
 
