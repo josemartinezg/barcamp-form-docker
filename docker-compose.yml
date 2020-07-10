@@ -40,11 +40,9 @@ services:
       - app-web3
     image: haproxy
     volumes:
-    - "./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
+    - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     ports:
       - 9000:9000
-
-
   base-datos-app-web:
     image: library/mysql:5.7.16
     ports:
