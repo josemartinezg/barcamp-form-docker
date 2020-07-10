@@ -40,7 +40,7 @@ services:
       - app-web3
     image: haproxy
     volumes:
-      - ./etc:/usr/local/etc/haproxy
+      - ./etc:/user/local/etc/haproxy
     ports:
       - 81:80
   base-datos-app-web:
