@@ -41,7 +41,7 @@ services:
       - app-web3
     image: haproxy
     volumes:
-      - ./etc:/usr/local/etc/haproxy
+    - "./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
     ports:
       - 9000:9000
 
