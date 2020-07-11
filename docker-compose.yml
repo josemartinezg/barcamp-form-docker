@@ -11,6 +11,7 @@ services:
       - red-app
     depends_on:
       - base-datos-app-web
+      - ha-proxy
   app-web2:
     image: oliverjpr/barcamp-from-docker
     ports:
@@ -21,6 +22,7 @@ services:
       - red-app
     depends_on:
       - base-datos-app-web
+      - ha-proxy
   app-web3:
     image: oliverjpr/barcamp-from-docker
     ports:
@@ -31,13 +33,10 @@ services:
       - red-app
     depends_on:
       - base-datos-app-web
+      - ha-proxy
   ha-proxy:
     networks:
       - red-app
-    depends_on:
-      - app-web
-      - app-web2
-      - app-web3
     image: haproxy
     volumes:
     - "./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
