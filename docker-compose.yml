@@ -31,19 +31,18 @@ services:
       - red-app
     depends_on:
       - base-datos-app-web
-  ha-proxy:
-    restart: always
-    networks:
-      - red-app
-    depends_on:
-      - app-web
-      - app-web2
-      - app-web3
-    image: haproxy
-    volumes:
-    - "./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
-    ports:
-      - 9000:9000
+  # HA-PROXY:
+  #   NETWORKS:
+  #     - RED-APP
+  #   DEPENDS_ON:
+  #     - APP-WEB
+  #     - APP-WEB2
+  #     - APP-WEB3
+  #   IMAGE: HAPROXY
+  #   VOLUMES:
+  #   - "./HAPROXY/HAPROXY.CFG:/USR/LOCAL/ETC/HAPROXY/HAPROXY.CFG"
+  #   PORTS:
+  #     - 9000:9000
 
 
   base-datos-app-web:
