@@ -10,4 +10,5 @@
 
 #Dockerfile para HAProxy
 FROM haproxy:1.8.8
+VOLUME /usr/etc/haproxy/
 COPY haproxy.cfg /usr/etc/haproxy/haproxy.cfg
