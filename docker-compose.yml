@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   app-web:
-    image: josemartinezg/barcamp-from-docker
+    image: oliverjpr/barcamp-from-docker
     ports:
       - 8080:8080
     environment:
@@ -12,7 +12,7 @@ services:
     depends_on:
       - base-datos-app-web
   app-web2:
-    image: josemartinezg/barcamp-from-docker
+    image: oliverjpr/barcamp-from-docker
     ports:
       - 8081:8081
     environment:
@@ -22,7 +22,7 @@ services:
     depends_on:
       - base-datos-app-web
   app-web3:
-    image: josemartinezg/barcamp-from-docker
+    image: oliverjpr/barcamp-from-docker
     ports:
       - 8082:8082
     environment:
